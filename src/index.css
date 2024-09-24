@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-family-default: "Open Sans", Rubik, Sen -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --skyBlue: #2274e0;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-default);
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+/* ::-webkit-scrollbar {
+  display: none;
+} */
