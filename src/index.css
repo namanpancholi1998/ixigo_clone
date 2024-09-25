@@ -19,9 +19,11 @@
 }
 
 body {
-  background-color: #f4f4f4;
+  background-color: #ffff;
+  margin-bottom: 100px;
+  overflow-x: hidden;
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
-} */
+}

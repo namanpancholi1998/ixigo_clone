@@ -1,10 +1,14 @@
 import React from "react";
+import FlightsOffers from "../Flights/FlightsOffers/FlightsOffers";
+import SearchPanel from "../Flights/SearchPanel/SearchPanel";
+import WhyIxigo from "../Flights/WhyIxigo/WhyIxigo";
 
 function Flight() {
   return (
-    <div>
-      Flight
-      <p>In this flight section will come</p>
+    <div className="homePage">
+      <SearchPanel />
+      <FlightsOffers />
+      <WhyIxigo />
     </div>
   );
 }

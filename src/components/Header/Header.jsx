@@ -7,7 +7,7 @@ import "./header.css";
 function Header() {
   return (
     <header className="w-full h-16 bg-white shadow-sm">
-      <div className="w-full max-w-[1440px] mx-auto h-full flex items-center px-[50px] justify-between max-sm:px-1">
+      <div className="w-full max-w-[1280px] mx-auto h-full flex items-center px-[50px] justify-between max-sm:px-1">
         <div className="flex items-center h-full">
           <Logo />
           <Navbar />
