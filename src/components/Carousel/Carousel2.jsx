@@ -29,14 +29,14 @@ function Carousel2({ data, loading, endpoint, title }) {
   return (
     <div className="relative w-auto mx-4 ">
       <ContentWrapper className="relative">
-        {/* <IoMdArrowBack
+        <IoMdArrowBack
           className="carouselLeftNav arrow text-2xl text-black bg-white p-4 w-14 h-14 rounded-full absolute -translate-y-2/4 cursor-pointer z-[2] hidden top-[60%] md:block transition-all hover:scale-110 left-6 shadow-even"
           onClick={() => navigation("left")}
         />
         <IoMdArrowForward
           className="carouselRightNav arrow text-2xl text-black bg-white p-4 w-14 h-14 rounded-full absolute -translate-y-2/4 cursor-pointer z-[2] hidden top-[60%] md:block transition-all hover:scale-110 right-6 shadow-even"
           onClick={() => navigation("right")}
-        /> */}
+        />
         <h1 className="text-left text-xl font-bold pb-[10px] ">
           Why Book With ixigo?
         </h1>

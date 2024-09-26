@@ -16,7 +16,7 @@ function FlightsOffers() {
     });
   }, [type]);
   return (
-    <div className="bg-[#fff] py-[30px] mt-20 ">
+    <div className="bg-[#fff] py-[30px] mt-0 md:mt-5 ">
       <div>
         <Carousel data={offers} loading={loading} />
       </div>
