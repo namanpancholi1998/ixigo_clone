@@ -1,22 +1,28 @@
 import React from "react";
 import { createPortal } from "react-dom";
-import "./LoginSignUpModal.css";
-import { ImCross } from "react-icons/im";
-function LoginSignUpModal({ children, toggleModal }) {
+import { IoMdCloseCircle } from "react-icons/io";
+import LoginSignup from "../../../pages/LoginSignup/LoginSignup";
+import "./loginSignup.css";
+
+function LoginSignUpModal({ toggleLoginModal }) {
+  const portalRoot = document.getElementById("modal");
+
   return createPortal(
     <>
-      <div className="backdrop-container"></div>
-      <div className="modal-container">
-        <button
-          className=" absolute w- top-5 right-5 hover:scale-1 bg-gray-100 rounded-2xl p-1 "
-          onClick={toggleModal}
-        >
-          <ImCross />
-        </button>
-        {children}
+      <div className="fixed top-0 left-0 w-full h-full backdrop-blur-sm bg-[rgba(71,85,105,0.7)] z-10"></div>
+      <div className="flex justify-center items-center ">
+        <div className="fixed bg-white z-50 top-0  rounded-lg   ">
+          <button
+            onClick={toggleLoginModal}
+            className="absolute top-2 right-2 text-3xl"
+          >
+            <IoMdCloseCircle />
+          </button>
+          <LoginSignup />
+        </div>
       </div>
     </>,
-    document.getElementById("loginmodal")
+    portalRoot
   );
 }
 export default LoginSignUpModal;

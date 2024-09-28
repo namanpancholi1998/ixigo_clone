@@ -10,8 +10,8 @@ import Hotel from "./pages/Hotels/Hotel";
 function App() {
   return (
     <Router>
-      <Routes>
-        <AuthProvider>
+      <AuthProvider>
+        <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Flight />} />
             <Route path="/flight" element={<Flight />} />
@@ -19,8 +19,8 @@ function App() {
             <Route path="buses" element={<Buses />} />
             <Route path="hotels" element={<Hotel />} />
           </Route>
-        </AuthProvider>
-      </Routes>
+        </Routes>
+      </AuthProvider>
     </Router>
   );
 }

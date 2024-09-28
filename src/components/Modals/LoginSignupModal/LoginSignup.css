@@ -1,6 +1,6 @@
 .backdrop-container {
-  width: 100vw;
-  height: 100vh;
+  width: 50vw;
+  height: 50vh;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
   position: fixed;

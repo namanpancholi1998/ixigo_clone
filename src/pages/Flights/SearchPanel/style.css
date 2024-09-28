@@ -1,9 +1,8 @@
 .ant-picker.ant-picker-focused {
   border: none;
   border-bottom: 2px solid;
-  border-color: orange;
+  border-color: var(--skyBlue);
 }
-
 .ant-picker-outlined {
   border: none;
   border-bottom: 2px solid gray;
