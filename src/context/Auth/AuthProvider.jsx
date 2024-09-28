@@ -16,7 +16,7 @@ export default function AuthProvider({ children }) {
   async function signUp(user) {
     const bodyObj = { ...user, appType: "bookingportals" };
     try {
-      const respone = await fetch(
+      const response = await fetch(
         "https://academics.newtonschool.co/api/v1/bookingportals/signup",
         {
           method: "POST",
@@ -27,7 +27,7 @@ export default function AuthProvider({ children }) {
           body: JSON.stringify(bodyObj),
         }
       );
-      const data = await respone.json();
+      const data = await response.json();
       if (data.status == "fail") {
         return new Error("User already exists");
       }

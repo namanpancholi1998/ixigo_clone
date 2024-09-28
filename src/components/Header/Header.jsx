@@ -17,16 +17,21 @@ function Header() {
   }
 
   return (
-    <header className="w-full  h-16 top-0 bg-white shadow-sm ">
-      <div className="w-full max-w-[1280px] mx-auto h-full flex items-center px-[10px] justify-between max-sm:px-1"></div>
-      <div className="flex">
-        <UserProfile
-          isLoggedIn={isLoggedIn}
-          toggleLoginModal={toggleLoginModal}
-        />
-        {showLoginSignupForm && (
-          <LoginSignUpModal toggleLoginModal={toggleLoginModal} />
-        )}
+    <header className="w-full fixed h-16 top-0 bg-white shadow-sm z-50">
+      <div className="w-full max-w-[1280px] mx-auto h-full flex items-center px-[10px] justify-between max-sm:px-1">
+        <div className="flex items-center h-full">
+          <Logo />
+          <Navbar />
+        </div>
+        <div className="flex">
+          <UserProfile
+            isLoggedIn={isLoggedIn}
+            toggleLoginModal={toggleLoginModal}
+          />
+          {showLoginSignupForm && (
+            <LoginSignUpModal toggleLoginModal={toggleLoginModal} />
+          )}
+        </div>
       </div>
     </header>
   );
