@@ -1,4 +1,5 @@
 import React from "react";
+import { useAuthContext } from "../.../../../../context/Auth/AuthProvider";
 import userSvg from "../../../assets/navbar/svgs/userFilled.svg";
 import { IoMdLogOut } from "react-icons/io";
 import { Menu } from "antd";
@@ -7,7 +8,6 @@ import {
   MailOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
-import DropMenu from "./DropMenu";
 
 function Profile({ toggleLoginModal, isLoggedIn }) {
   const { user, logOut } = useAuthContext();
