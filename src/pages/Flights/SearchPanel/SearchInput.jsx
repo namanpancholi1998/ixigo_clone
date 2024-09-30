@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./style.css";
 import dayjs from "dayjs";
-import { DatePicker } from "antd";
 import InputBox from "../../../components/CustomInput/CustomInputBox";
-import SearchButton from "../../../components/Buttons/SearchBtn";
 import SwapButton from "../../../components/Buttons/SwapButton";
-import TravelersCount from "../../../components/Counter/TravelersCount";
-import SpecialFares from "./SpecialFear";
+// import TravelersCount from "../../../components/";
+// import SpecialFares from "./SpecialFares";
+// import SearchButton from "../../../components/Buttons/SearchButton";
+// import { useFlightsContext } from "../../../context/FlightsDetailProvider";
+// import DateSelect from "../../../components/DateSelect/DateSelect";
 
 function SearchInput() {
   const [inputFromValue, setInputFromValue] = useState("");
