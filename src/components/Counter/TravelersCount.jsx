@@ -5,9 +5,11 @@ import Counter from "./Counter";
 
 const TravelersCount = ({ value, handleValue, className }) => {
   const [showMenu, setShowMenu] = useState(false);
+  console.log(value);
+
   return (
     <div
-      className={`text-left   relative border-2 rounded-md p-0 m-3 w-full hover:border-b-orange-500 cursor-pointer ${
+      className={`text-left ${className}  relative border-2 rounded-md p-0 m-3 w-full hover:border-b-orange-500 cursor-pointer ${
         showMenu ? "border-b border-b-orange-500" : ""
       } `}
       onClick={() => {
@@ -30,11 +32,12 @@ const TravelersCount = ({ value, handleValue, className }) => {
       <span className="py-0 px-4 m-0 font-thin text-xs capitalize">
         {value?.class}
       </span>
+
       <label
         htmlFor={"id"}
         className={`absolute -top-3 left-3 px-1 rounded bg-[#fff] text-[rgb(119,119,119)] font-medium leading-[18px] text-sm z-[2]`}
       >
-        Travellers & Class
+        Travelers & Class
       </label>
       <div
         className={`counter absolute top-20 -left-1 bg-white rounded shadow-all w-[250px] md:w-96 p-4 px-8 z-[2] flex flex-col md:right-0 md:left-auto  transition-all duration-500 origin-top-left md:origin-top-right ${
@@ -105,4 +108,5 @@ const TravelersCount = ({ value, handleValue, className }) => {
     </div>
   );
 };
+
 export default TravelersCount;

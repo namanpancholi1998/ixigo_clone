@@ -4,7 +4,7 @@ function FilterPanel() {
   return (
     <div>
       FilterPanel
-      <p>In this filtter panel will come</p>
+      <p>In this filter panel will come</p>
     </div>
   );
 }
