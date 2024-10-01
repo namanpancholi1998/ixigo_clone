@@ -15,7 +15,6 @@ const initialState = {
   },
   date_of_journey: dayjs().format("YYYY-MM-DD"),
 };
-
 function reducerFunction(state, action) {
   switch (action.type) {
     case "set_destination_location": {
@@ -68,24 +67,22 @@ function reducerFunction(state, action) {
       return state;
   }
 }
+const FlightsContext = createContext();
 
-// Created Context
-export const FlightContext = createContext();
-
-// Context Provider
-export default function FlightContextProvider({ children }) {
+function FlightsDetailProvider({ children }) {
   const [flightsDetails, dispatchFlightsDetails] = useReducer(
-    reducerFlights,
+    reducerFunction,
     initialState
   );
   return (
-    <FlightContext.Provider value={{ flightsDetails, dispatchFlightsDetails }}>
+    <FlightsContext.Provider value={{ flightsDetails, dispatchFlightsDetails }}>
       {children}
-    </FlightContext.Provider>
+    </FlightsContext.Provider>
   );
 }
 
-// exporting to UseContext
+export default FlightsDetailProvider;
+
 export function useFlightsContext() {
-  return useContext(FlightContext);
+  return useContext(FlightsContext);
 }

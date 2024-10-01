@@ -14,8 +14,11 @@ function SearchInput() {
   const [inputFromValue, setInputFromValue] = useState("");
   const [inputToValue, setInputToValue] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
-
-  const { flightDetails, dispatchFlightDetails } = useFlightsContext();
+  // console.log(selectedDate);
+  // console.log(inputFromValue);
+  // console.log(inputToValue);
+  const { flightsDetails, dispatchFlightsDetails } = useFlightsContext();
+  // console.log(useFlightsContext());
 
   const {
     source_location,
@@ -23,16 +26,21 @@ function SearchInput() {
     oneWay,
     travel_details,
     date_of_journey,
-  } = flightDetails;
-  console.log(flightDetails);
+  } = flightsDetails;
+  // console.log(flightsDetails);
 
   const pathname = useLocation().pathname;
-  console.log(pathname);
+  // console.log(pathname);
 
   const navigate = useNavigate();
-  console.log(navigate);
+  // console.log(navigate);
+
+  // console.log(source_location, `before nav`);
+  // console.log(destination_location);
+  // console.log(date_of_journey);
+  // console.log(travel_details);
   const handleSearch = (e) => {
-    console.log("clicked");
+    // console.log("clicked");
     const { adult, child, infant } = travel_details?.numbers;
     if (source_location == "") {
       errorToast("Please Enter Source Location");
@@ -52,24 +60,23 @@ function SearchInput() {
     const encodedPath = btoa(
       `${source_location}-${destination_location}--${date_of_journey}--${adult}-${child}-${infant}`
     );
-
+    console.log(source_location, destination_location);
     if (pathname.includes("flight")) {
       navigate(`air-${encodedPath}`);
     } else {
       navigate(`flight/air-${encodedPath}`);
     }
   };
-
   return (
-    <div className="p-2">
+    <div className="p-8 md:p-2">
       <form
         onSubmit={(e) => {
           e.preventDefault();
         }}
-        className="bg-white border border-slate-200 shadow-[0px_0px_30px_-10px_rgba(0,0,0,0.2)] rounded-[20px]  my-2 mx-auto
+        className="bg-white border  border-slate-200 shadow-[0px_0px_30px_-10px_rgba(0,0,0,0.2)]   my-2 mx-auto
     flex flex-col"
       >
-        <div className="border-none p-[20px] gap-2 md:gap-10 flex md:flex-row flex-col rounded-[20px] ">
+        <div className="border-none px-6 pt-6 md:p-[20px] gap-2 md:gap-10 flex md:flex-row flex-col rounded-[20px] ">
           <div className="flex flex-1 gap-2 md:gap-4 flex-col md:flex-row justify-center items-center">
             <InputBox
               type="text"
@@ -116,7 +123,7 @@ function SearchInput() {
           </div>
           <div className="flex md:gap-4 flex-1 flex-col md:flex-row justify-center items-center">
             <DateSelect
-              className="w-full relative rounded-lg  focus:outline-none  border-b-2 border-slate-200 hover:border-b-orange-500 focus:border-b-orange-500 active:border-b-orange-500  font-medium text-lg leading-7 text-[rgb(20,24,35)] py-[20px] px-[16px]  "
+              className="w-full relative bg-transparent focus:outline-none border-b-2 border-slate-200 hover:border-orange-500 focus:border-orange-500 font-medium text-xs md:text-lg md:leading-7 text-[rgb(20, 24, 35)] py-2 px-2 md:py-5 md:px-4 "
               value={date_of_journey || dayjs()}
               handleDepartureDate={(value) => {
                 // console.log("handleDate");
@@ -126,7 +133,7 @@ function SearchInput() {
                 });
               }}
             />
-            <TravellersCount
+            <TravelersCount
               value={travel_details}
               handleValue={(secondType, target) => {
                 dispatchFlightsDetails({
@@ -138,10 +145,13 @@ function SearchInput() {
             />
           </div>
           <div className="flex gap-4 flex-col md:flex-row justify-center items-center">
-            <SearchButton
-              className="bg-orange-500 hover:bg-orange-700 flex-1 py-4 px-7 rounded-xl text-white font-semibold w-full"
-              handleSearch={handleSearch}
-            />
+            <button
+              type="submit"
+              onClick={handleSearch}
+              className="bg-orange-500 mx-10  md:mx-0  text-xs md:text-lg py-2 px-8 md:py-2 hover:bg-orange-600 text-white rounded-lg hover:shadow-md"
+            >
+              SEARCH
+            </button>
           </div>
         </div>
         <div>

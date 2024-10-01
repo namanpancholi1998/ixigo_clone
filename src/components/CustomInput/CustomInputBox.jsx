@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 
+const projectID = "f104bi07c490";
+
 const CustomInput = ({
   label,
   placeholder,
@@ -14,7 +16,7 @@ const CustomInput = ({
   error,
 }) => {
   const [airportList, setAirportList] = useState(null);
-  const [showsuggestion, setShowsuggestion] = useState(false);
+  const [showSuggestion, setShowSuggestion] = useState(false);
   const [suggestionList, setSuggestionList] = useState(null);
   useEffect(() => {
     async function FetchAirportFromAPI() {
@@ -49,15 +51,15 @@ const CustomInput = ({
 
   const handleInput = (inputText) => {
     if (inputText.trim().length > 0) {
-      setShowsuggestion(true);
+      setShowSuggestion(true);
     } else {
-      setShowsuggestion(false);
+      setShowSuggestion(false);
     }
   };
 
   function handleSelect(airport) {
     console.log(airport);
-    setShowsuggestion(false);
+    setShowSuggestion(false);
     handleValue(airport?.iata_code);
     setInputValue(`${airport?.city}, (${airport?.iata_code})`);
   }
@@ -85,7 +87,7 @@ const CustomInput = ({
       >
         {label ? label : "Input"}
       </label>
-      {showsuggestion && (
+      {showSuggestion && (
         <ul className="absolute text-black max-h-[200px] md:h-[200px] overflow-y-auto bg-white border-2 border-gray-200 rounded-lg w-full text-sm md:text-lg z-10">
           {suggestionList?.length > 0 ? (
             suggestionList?.map((airportDetails) => (
