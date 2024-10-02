@@ -8,6 +8,8 @@ import Train from "./pages/Trains/Train";
 import Buses from "./pages/Buses/Buses";
 import Hotel from "./pages/Hotels/Hotel";
 import SearchPage from "./pages/Flights/FlightSearchPage/SearchPage";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
           </Routes>
         </FlightContextProvider>
       </AuthProvider>
+      <ToastContainer />
     </Router>
   );
 }

@@ -76,7 +76,7 @@ const CustomInput = ({
           setInputValue(e.target.value);
           handleInput(e.target.value);
         }}
-        className="w-full relative rounded-lg bg-transparent focus:outline-none  border-b-2 border-slate-200 hover:border-orange-500 focus:border-orange-500 font-medium text-lg leading-7 text-[rgb(20, 24, 35)] py-3 px-4 md:py-5 md:px-4 "
+        className="w-full relative rounded-lg bg-transparent focus:outline-none  border-b-2 border-slate-200 hover:border-[var(--skyBlue)] focus:border-[var(--skyBlue)] font-medium text-lg leading-7 text-[rgb(20, 24, 35)] py-3 px-4 md:py-5 md:px-4 "
       />
 
       <label
@@ -88,7 +88,7 @@ const CustomInput = ({
         {label ? label : "Input"}
       </label>
       {showSuggestion && (
-        <ul className="absolute text-black max-h-[200px] md:h-[200px] overflow-y-auto bg-white border-2 border-gray-200 rounded-lg w-full text-sm md:text-lg z-10">
+        <ul className="absolute text-black max-h-[200px] md:h-[200px] overflow-y-auto bg-white border-2 border-gray-200 rounded-lg w-full text-sm md:text-lg z-10 cursor-pointer">
           {suggestionList?.length > 0 ? (
             suggestionList?.map((airportDetails) => (
               <li

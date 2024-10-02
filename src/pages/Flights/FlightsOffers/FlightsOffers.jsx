@@ -10,7 +10,7 @@ function FlightsOffers() {
   useEffect(() => {
     // console.log("Rendered Type : ", type);
     getFlightsOffers(type).then((res) => {
-      // console.log("Data Received : ", res);
+      console.log("Data Received : ", res);
       setOffers(res);
       setLoading(false);
     });

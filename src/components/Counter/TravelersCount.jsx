@@ -1,22 +1,19 @@
 import React, { useState } from "react";
-import { BiCloset } from "react-icons/bi";
 import { MdClose } from "react-icons/md";
 import Counter from "./Counter";
 
-const TravelersCount = ({ value, handleValue, className }) => {
+const TravelersCount = ({ value, handleValue, className, error }) => {
   const [showMenu, setShowMenu] = useState(false);
-  console.log(value);
-
   return (
     <div
-      className={`text-left ${className}  relative border-2 rounded-md p-0 m-3 w-full hover:border-b-orange-500 cursor-pointer ${
-        showMenu ? "border-b border-b-orange-500" : ""
+      className={`text-left ${className}   relative border-b-2 rounded-lg  p-0 mt-3 md:m-3 w-full hover:border-b-[var(--skyBlue)] cursor-pointer ${
+        showMenu ? "border-b border-b-[var(--skyBlue)] " : ""
       } `}
       onClick={() => {
         setShowMenu(true);
       }}
     >
-      <p className="font-medium leading-0 px-4 pt-2 m-0">
+      <p className="font-medium leading-0 px-4 pt-2 m-0 text-xs md:text-lg">
         {value?.numbers?.adult} {value?.numbers?.adult > 1 ? "Adults" : "Adult"}
         {value?.numbers?.child > 0
           ? value?.numbers?.child > 1
@@ -35,17 +32,20 @@ const TravelersCount = ({ value, handleValue, className }) => {
 
       <label
         htmlFor={"id"}
-        className={`absolute -top-3 left-3 px-1 rounded bg-[#fff] text-[rgb(119,119,119)] font-medium leading-[18px] text-sm z-[2]`}
+        className={`absolute hover:border-orange-500 focus:border-orange-500  select-none top-[-6px] md:top-[-15px] left-1 px-1 font-medium leading-[18px] text-xs md:text-md ${
+          error ? "text-red-500" : "text-[rgb(119,119,119)]"
+        } `}
       >
-        Travelers & Class
+        Travellers & Class
       </label>
+
       <div
         className={`counter absolute top-20 -left-1 bg-white rounded shadow-all w-[250px] md:w-96 p-4 px-8 z-[2] flex flex-col md:right-0 md:left-auto  transition-all duration-500 origin-top-left md:origin-top-right ${
           showMenu ? "scale-100 " : "scale-0"
         }`}
       >
         <button
-          className="close shadow-all text-center flex items-center justify-center w-6 h-6 bg-white absolute -top-3 -right-3 rounded-full"
+          className="close text-black shadow-all text-center flex items-center justify-center w-6 h-6 bg-white absolute -top-3 -right-3 rounded-full"
           onClick={() => {
             // console.log("clicked cross");
             setTimeout(() => {

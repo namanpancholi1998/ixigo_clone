@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ContentWrapper from "../../../components/ContentWrapper/ContentWrapper";
 import SearchPanel from "../SearchPanel/SearchPanel";
 import Advertisement from "../Advertisement/Advertisement";
-import BannerImg1 from "../../../assets/images/homePage/banner-agra-con.webp";
-import BannerImg2 from "../../../assets/images/homePage/banner-agra-org.webp";
-import BannerImg3 from "../../../assets/images/homePage/banner-bali-indonesia-con.webp";
-import BannerImg4 from "../../../assets/images/homePage/banner-bali-indonesia-org.webp";
-import BannerImg5 from "../../../assets/images/homePage/banner-kochi-con.webp";
-import BannerImg6 from "../../../assets/images/homePage/banner-kochi-org.webp";
-import BannerImg7 from "../../../assets/images/homePage/banner-london-unitedKingdom-con.webp";
-import BannerImg8 from "../../../assets/images/homePage/banner-london-unitedKingdom-org.webp";
-import BannerImg9 from "../../../assets/images/homePage/banner-udaipur-india-con.webp";
-import BannerImg10 from "../../../assets/images/homePage/banner-udaipur-india-org.webp";
+import flightLogo from "../../../assets/images/homePage/flight-booking.png";
+
+import BannerImg1 from "../../../assets/images/homePage/banner-1.jpg";
+import BannerImg2 from "../../../assets/images/homePage/banner-2.jpg";
+import BannerImg3 from "../../../assets/images/homePage/banner-3.jpg";
+import BannerImg4 from "../../../assets/images/homePage/banner-4.jpg";
+import BannerImg5 from "../../../assets/images/homePage/banner-nature-7.jpg";
+import BannerImg6 from "../../../assets/images/homePage/banner-jaipur-5.jpg";
+import BannerImg7 from "../../../assets/images/homePage/banner-Mysore-6.jpg";
 
 import "./style.css";
 
@@ -25,9 +24,6 @@ function FlightBanner() {
     BannerImg5,
     BannerImg6,
     BannerImg7,
-    BannerImg8,
-    BannerImg9,
-    BannerImg10,
   ];
 
   useEffect(() => {
@@ -37,17 +33,27 @@ function FlightBanner() {
 
   return (
     <div
-      style={{ background: `url(${background}) no-repeat` }}
-      className="w-full relative h-[600px] md:h-[600px] flex items-center bg-center bg-cover "
+      style={{
+        background: `url(${background}) no-repeat`,
+      }}
+      className="w-full relative h-[600px] md:h-[600px]  flex items-center bg-center bg-cover "
     >
       <div className="absolute w-full "></div>
       <div className="opacity-layer"></div>
 
       <ContentWrapper>
-        <div className="heroBannerContent text-black flex flex-col items-center justify-center relative max-w-screen-xl mx-auto">
-          <span className="title text-3xl md:text-6xl font-bold mb-2 md:mb-0">
-            Search . Book . Go
-          </span>
+        <div className="heroBannerContent  flex flex-col items-center justify-center relative max-w-screen-xl mx-auto">
+          <div className="text-center flex items-center justify-center gap-5">
+            <img src={flightLogo} className="Flight-logo" />
+            <span className="title flex items-center justify-center text-2xl text-white md:text-xl font-bold  gap-2">
+              Search
+              <span className="">.</span>
+              Book
+              <span className=" ">.</span>
+              Go
+            </span>
+          </div>
+
           <SearchPanel />
         </div>
       </ContentWrapper>

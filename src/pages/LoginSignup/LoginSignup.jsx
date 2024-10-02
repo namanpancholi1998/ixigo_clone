@@ -19,7 +19,7 @@ function LoginSignup() {
   };
   const { setShowLoginSignupForm, signUp } = useAuthContext();
   return (
-    <div className="flex mx-auto h-[550px] max-w-[600px]">
+    <div className="flex mx-auto h-[450px] max-w-[500px]">
       <img
         className="w-1/2 rounded-l-lg"
         src={loginSignupImg}

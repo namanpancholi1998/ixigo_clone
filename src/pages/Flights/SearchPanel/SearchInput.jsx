@@ -9,16 +9,13 @@ import SpecialFares from "./SpecialFear";
 import SearchButton from "../../../components/Buttons/SearchBtn";
 import { useFlightsContext } from "../../../context/FlightContextProvider/FlightContextProvider";
 import DateSelect from "../../../components/SelectDate/SelectDate";
+import { errorToast, successToast } from "../../../components/Toast/Toast";
 
 function SearchInput() {
   const [inputFromValue, setInputFromValue] = useState("");
   const [inputToValue, setInputToValue] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
-  // console.log(selectedDate);
-  // console.log(inputFromValue);
-  // console.log(inputToValue);
   const { flightsDetails, dispatchFlightsDetails } = useFlightsContext();
-  // console.log(useFlightsContext());
 
   const {
     source_location,
@@ -27,25 +24,18 @@ function SearchInput() {
     travel_details,
     date_of_journey,
   } = flightsDetails;
-  // console.log(flightsDetails);
 
   const pathname = useLocation().pathname;
-  // console.log(pathname);
 
   const navigate = useNavigate();
-  // console.log(navigate);
 
-  // console.log(source_location, `before nav`);
-  // console.log(destination_location);
-  // console.log(date_of_journey);
-  // console.log(travel_details);
   const handleSearch = (e) => {
-    // console.log("clicked");
     const { adult, child, infant } = travel_details?.numbers;
     if (source_location == "") {
       errorToast("Please Enter Source Location");
       return;
     }
+
     if (destination_location == "") {
       errorToast("Please Enter Destination Location");
       return;
@@ -57,10 +47,13 @@ function SearchInput() {
       );
       return;
     }
+
     const encodedPath = btoa(
       `${source_location}-${destination_location}--${date_of_journey}--${adult}-${child}-${infant}`
     );
-    console.log(source_location, destination_location);
+
+    // console.log(source_location, destination_location);
+
     if (pathname.includes("flight")) {
       navigate(`air-${encodedPath}`);
     } else {
@@ -123,7 +116,7 @@ function SearchInput() {
           </div>
           <div className="flex md:gap-4 flex-1 flex-col md:flex-row justify-center items-center">
             <DateSelect
-              className="w-full relative bg-transparent focus:outline-none border-b-2 border-slate-200 hover:border-orange-500 focus:border-orange-500 font-medium text-xs md:text-lg md:leading-7 text-[rgb(20, 24, 35)] py-2 px-2 md:py-5 md:px-4 "
+              className="w-full relative bg-transparent focus:outline-none border-b-2 border-slate-200 hover:border-[var(--skyBlue)] focus:border-[var(--skyBlue)] font-medium text-xs md:text-lg md:leading-7 text-[rgb(20, 24, 35)] py-2 px-2 md:py-5 md:px-4 "
               value={date_of_journey || dayjs()}
               handleDepartureDate={(value) => {
                 // console.log("handleDate");
