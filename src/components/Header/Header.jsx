@@ -9,10 +9,8 @@ import "./header.css";
 function Header() {
   const { isLoggedIn, setShowLoginSignupForm, showLoginSignupForm, logOut } =
     useAuthContext();
-  console.log(showLoginSignupForm);
 
   function toggleLoginModal() {
-    console.log("toggle login");
     setShowLoginSignupForm((prev) => !prev);
   }
 

@@ -4,12 +4,14 @@ import SearchPanel from "../Flights/SearchPanel/SearchPanel";
 import WhyIxigo from "../Flights/WhyIxigo/WhyIxigo";
 import Advertisement from "./Advertisement/Advertisement";
 import FlightBanner from "./FlightBanner/FlightBanner";
+import TestPanel from "./SearchPanel/TestPanel";
 
 function Flight() {
   return (
     <div className="homePage">
       <FlightBanner />
       {/* <SearchPanel /> */}
+      {/* <TestPanel /> */}
       <Advertisement />
       <FlightsOffers />
       <WhyIxigo />

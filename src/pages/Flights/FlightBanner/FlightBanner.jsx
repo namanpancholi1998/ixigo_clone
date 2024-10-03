@@ -13,6 +13,7 @@ import BannerImg6 from "../../../assets/images/homePage/banner-jaipur-5.jpg";
 import BannerImg7 from "../../../assets/images/homePage/banner-Mysore-6.jpg";
 
 import "./style.css";
+import TestPanel from "../SearchPanel/TestPanel";
 
 function FlightBanner() {
   const [background, setBackground] = useState("");
@@ -34,7 +35,7 @@ function FlightBanner() {
   return (
     <div
       style={{
-        background: `url(${background}) no-repeat`,
+        background: `url(${background}) center center/cover no-repeat`,
       }}
       className="w-full relative h-[600px] md:h-[600px]  flex items-center bg-center bg-cover "
     >
@@ -54,7 +55,8 @@ function FlightBanner() {
             </span>
           </div>
 
-          <SearchPanel />
+          {/* <SearchPanel /> */}
+          <TestPanel />
         </div>
       </ContentWrapper>
     </div>
