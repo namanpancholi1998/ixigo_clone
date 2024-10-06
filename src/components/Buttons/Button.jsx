@@ -1,9 +1,9 @@
 import React from "react";
 
-function Button({ type, className, handleSearch }) {
+function Button({ type, className, handleClick }) {
   return (
     <button
-      onClick={handleSearch}
+      onClick={handleClick}
       className={`${className} uppercase transition-all `}
     >
       {type}
