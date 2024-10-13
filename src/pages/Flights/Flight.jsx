@@ -5,6 +5,7 @@ import WhyIxigo from "../Flights/WhyIxigo/WhyIxigo";
 import Advertisement from "./Advertisement/Advertisement";
 import FlightBanner from "./FlightBanner/FlightBanner";
 import TestPanel from "./SearchPanel/TestPanel";
+import DomesticAirline from "./DomesticAirline/DomesticAirline";
 
 function Flight() {
   return (
@@ -15,6 +16,7 @@ function Flight() {
       <Advertisement />
       <FlightsOffers />
       <WhyIxigo />
+      <DomesticAirline />
     </div>
   );
 }

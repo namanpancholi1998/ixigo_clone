@@ -10,7 +10,7 @@ import Hotel from "./pages/Hotels/Hotel";
 import SearchPage from "./pages/Flights/FlightSearchPage/SearchPage";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import FlightResults from "./pages/Flights/FlightResults";
+// import FlightResults from "./pages/Flights/FlightResults";
 
 function App() {
   return (
@@ -21,9 +21,9 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Flight />} />
               <Route path="/flight" element={<Flight />} />
-              {/* <Route path="/FlightResults" element={<SearchPage />} /> */}
+              <Route path="/FlightResults" element={<SearchPage />} />
               {/* Test */}
-              <Route path="flightResults" element={<FlightResults />} />{" "}
+              {/* <Route path="flightResults" element={<FlightResults />} />{" "} */}
               <Route path="trains" element={<Train />} />
               <Route path="buses" element={<Buses />} />
               <Route path="hotels" element={<Hotel />} />
