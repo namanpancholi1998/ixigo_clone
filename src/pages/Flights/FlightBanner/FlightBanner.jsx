@@ -13,7 +13,7 @@ import BannerImg6 from "../../../assets/images/homePage/banner-jaipur-5.jpg";
 import BannerImg7 from "../../../assets/images/homePage/banner-Mysore-6.jpg";
 
 import "./style.css";
-import TestPanel from "../SearchPanel/TestPanel";
+// import TestPanel from "../SearchPanel/TestPanel";
 
 function FlightBanner() {
   const [background, setBackground] = useState("");
@@ -55,8 +55,8 @@ function FlightBanner() {
             </span>
           </div>
 
-          {/* <SearchPanel /> */}
-          <TestPanel />
+          <SearchPanel />
+          {/* <TestPanel /> */}
         </div>
       </ContentWrapper>
     </div>

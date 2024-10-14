@@ -21,9 +21,8 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Flight />} />
               <Route path="/flight" element={<Flight />} />
-              <Route path="/FlightResults" element={<SearchPage />} />
-              {/* Test */}
-              {/* <Route path="flightResults" element={<FlightResults />} />{" "} */}
+              <Route path="/flight/:searchQuery" element={<SearchPage />} />
+
               <Route path="trains" element={<Train />} />
               <Route path="buses" element={<Buses />} />
               <Route path="hotels" element={<Hotel />} />

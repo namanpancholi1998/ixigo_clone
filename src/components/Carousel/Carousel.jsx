@@ -22,16 +22,6 @@ function Carousel({ data, loading, endpoint, title }) {
     });
   };
 
-  const skItem = () => {
-    let count = 0;
-    count = count + 1;
-    return (
-      <div className="w-[300px] h-[250px] shrink-0 border-none max-md:w-[270px] max-md:h-[180px] bg-red-200 rounded-2xl">
-        {count}
-      </div>
-    );
-  };
-
   return (
     <div className="relative w-auto mx-4">
       <ContentWrapper className="relative">
@@ -52,7 +42,6 @@ function Carousel({ data, loading, endpoint, title }) {
           ref={carouselContainer}
         >
           {data?.map((details) => {
-            // console.log(details._id);
             return <OfferCard key={details._id} {...details} />;
           })}
         </div>
