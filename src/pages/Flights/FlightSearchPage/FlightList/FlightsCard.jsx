@@ -23,7 +23,6 @@ function FlightsCard({
   return (
     <article className="card w-[90%] mx-auto mb-2 border-2 relative  h-fit py-4 px-2 hover:shadow-even transition-all bg-white  duration-500 scale-[98%] ">
       <div className=" ml-4 pb-3 flex gap-4">
-        {" "}
         <img
           className=" shrink-0 rounded-lg w-6 h-6"
           src={airlineData[airline]?.logo}

@@ -1,4 +1,6 @@
 .searchPanel {
-  background: linear-gradient(45deg, #721053, #ad2e41);
+  /* background: linear-gradient(45deg, #721053, #ad2e41); */
+  background: linear-gradient(#c1c9ca);
+
   width: 100%;
 }

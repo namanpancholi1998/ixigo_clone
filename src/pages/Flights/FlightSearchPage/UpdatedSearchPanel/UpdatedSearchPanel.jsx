@@ -5,28 +5,20 @@ import InputBox from "../../../../components/CustomInput/CustomInputBox";
 import SwapButton from "../../../../components/Buttons/SwapButton";
 import DateSelect from "../../../../components/SelectDate/SelectDate";
 import TravelersCount from "../../../../components/Counter/TravelersCount";
-import SearchButton from "../../../../components/Buttons/SwapButton";
+import SearchButton from "../../../../components/Buttons/SearchBtn";
 import "./style.css";
 import ContentWrapper from "../../../../components/ContentWrapper/ContentWrapper";
 
 import { useFlightsContext } from "../../../../context/FlightContextProvider/FlightContextProvider";
 
 function UpdatedSearchPanel(flightsResult, setFlightsResult) {
-  // Extracting data from params
   const { searchQuery } = useParams();
-  //   console.log(useParams());
   const encodedString = searchQuery ?? "";
-  //   console.log(encodedString);
   const extractedEncodedPath = encodedString.replace("air-", "");
-  //   console.log(extractedEncodedPath);
   const decodedPath = atob(extractedEncodedPath);
-  console.log(decodedPath);
   const [location, date, counts] = decodedPath?.split("--");
-  console.log(`L: ${location} ,D: ${date},C: ${counts}`);
   const [source, destination] = location.split("-");
-  console.log(`S: ${source} ,D: ${destination}`);
   const [adult, child, infant] = counts?.split("-");
-  console.log(`a:${adult},c: ${child},i: ${infant}`);
 
   // To Make update Search
   const [inputSourceValue, setInputSourceValue] = useState(source);
@@ -34,7 +26,6 @@ function UpdatedSearchPanel(flightsResult, setFlightsResult) {
   const [selectedDate, setSelectedDate] = useState(date);
   const { flightsDetails, dispatchFlightsDetails } = useFlightsContext();
   const { travel_details } = flightsDetails;
-  console.log(travel_details, `details travel`);
   const navigate = useNavigate();
   const regex = /\((.*?)\)/;
   function handleSearch() {
@@ -98,7 +89,7 @@ function UpdatedSearchPanel(flightsResult, setFlightsResult) {
                 // console.log("handleDate");
                 setSelectedDate(value);
               }}
-              className="w-full relative rounded-lg  bg-transparent text-white focus:outline-none  border-b-2 border-slate-200 hover:border-b-orange-500 hover:bg-transparent focus:border-b-orange-500 active:border-b-orange-500  font-medium text-lg leading-7  py-[20px] px-[16px]  "
+              className="w-full relative rounded-lg  bg-transparent text-white focus:outline-none  border-b-2 border-slate-200 hover:border-b--[--skyBlue]  hover:bg-transparent focus:border-b-[--skyBlue] active:border-b-orange-500  font-medium text-lg leading-7  py-[20px] px-[16px]  "
             />
             <TravelersCount
               value={travel_details}
@@ -113,7 +104,6 @@ function UpdatedSearchPanel(flightsResult, setFlightsResult) {
             />
           </div>
           <div className="flex gap-4 flex-col md:flex-row justify-center items-center">
-            {" "}
             <SearchButton
               type={""}
               handleSearch={handleSearch}

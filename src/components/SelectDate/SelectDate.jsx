@@ -8,7 +8,7 @@ const SelectDate = ({ value, handleDepartureDate, className, labelClass }) => {
     <label className="date relative hover:cursor-pointer w-full ">
       <label
         htmlFor={"id"}
-        className={`absolute -top-3 left-3 px-1 rounded bg-[#fff] text-[rgb(119,119,119)] font-medium leading-[18px] text-sm z-[2]`}
+        className={`absolute -top-3 left-3 px-1 rounded text-[rgb(119,119,119)] font-medium leading-[18px] text-sm z-[2]`}
       >
         Departure
       </label>
