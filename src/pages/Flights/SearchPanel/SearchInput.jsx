@@ -10,6 +10,9 @@ import SearchButton from "../../../components/Buttons/SearchBtn";
 import { useFlightsContext } from "../../../context/FlightContextProvider/FlightContextProvider";
 import DateSelect from "../../../components/SelectDate/SelectDate";
 import { errorToast, successToast } from "../../../components/Toast/Toast";
+import { IoCall } from "react-icons/io5";
+import { FaThumbsUp } from "react-icons/fa";
+import { BiSolidOffer } from "react-icons/bi";
 
 function SearchInput() {
   const [inputFromValue, setInputFromValue] = useState("");
@@ -52,7 +55,7 @@ function SearchInput() {
       `${source_location}-${destination_location}--${date_of_journey}--${adult}-${child}-${infant}`
     );
 
-    // console.log(source_location, destination_location);
+    console.log(source_location, destination_location);
 
     if (pathname.includes("flight")) {
       navigate(`air-${encodedPath}`);
@@ -62,11 +65,73 @@ function SearchInput() {
   };
   return (
     <div className="p-8 md:p-2">
+      {/* TEST */}
+      <div className="flex justify-between items-center my-2 mx-[10px]">
+        <div className="flex flex-col">
+          <div
+            role="tablist"
+            className="flex items-center gap-10 justify-center "
+          >
+            <button
+              role="tab"
+              className="flex items-center relative transition-all xl:min-h-[40px]  border rounded-full px-15 text-selection-outline hover:bg-selection-over border-selection-outline hover:bg-subbrand-50"
+            >
+              One Way
+            </button>
+            <button
+              role="tab"
+              className="flex items-center relative transition-all xl:min-h-[40px] border rounded-full px-15 text-primary hover:bg-primary-over border-secondary hover:bg-subbrand-50"
+            >
+              Round Trip
+            </button>
+          </div>
+        </div>
+        {/* AUTO SCROLLING HEADINGS CONTAINER STARTS */}
+        <div className=" hidden xl:block h-[20px] overflow-y-auto no-scrollbar">
+          <div className="style_scrollingWordBox__F_1N8">
+            <ul className="style_scrollingWordBoxUlInput__efDeh scrollingContainer ">
+              <li className="style_scrollingWordBoxUlListInput__1zls5 !justify-end ">
+                <p className="body-sm flex items-center gap-5 ">
+                  <IoCall className="text-green-600" />
+                  24x7 Customer Support
+                </p>
+              </li>
+              <li className="style_scrollingWordBoxUlListInput__1zls5 !justify-end">
+                <p className="body-sm flex items-center gap-5">
+                  <FaThumbsUp className="text-green-600" />
+                  Hassle-Free Bookings
+                </p>
+              </li>
+              <li className="style_scrollingWordBoxUlListInput__1zls5 !justify-end">
+                <p className="body-sm flex items-center gap-5">
+                  <BiSolidOffer className="text-green-600" />
+                  Best Flight Offers
+                </p>
+              </li>
+              <li className="style_scrollingWordBoxUlListInput__1zls5 !justify-end">
+                <p className="body-sm flex items-center gap-5">
+                  <FaThumbsUp className="text-green-600" />
+                  Hassle-Free Bookings
+                </p>
+              </li>
+              <li className="style_scrollingWordBoxUlListInput__1zls5 !justify-end">
+                <p className="body-sm flex items-center gap-5">
+                  <IoCall className="text-green-600" />
+                  24x7 Customer Support
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        {/* AUTO SCROLLING HEADINGS CONTAINER ENDS */}
+      </div>
+      {/* TEST */}
+
       <form
         onSubmit={(e) => {
           e.preventDefault();
         }}
-        className="bg-white border  border-slate-200 shadow-[0px_0px_30px_-10px_rgba(0,0,0,0.2)]   my-2 mx-auto
+        className="bg-white   my-2 mx-auto
     flex flex-col"
       >
         <div className="border-none px-6 pt-6 md:p-[20px] gap-2 md:gap-10 flex md:flex-row flex-col rounded-[20px] ">
