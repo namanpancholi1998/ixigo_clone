@@ -1,10 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
+import { useEffect, useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Link, useNavigate } from "react-router-dom";
-import { IoCall } from "react-icons/io5";
 import { FaThumbsUp } from "react-icons/fa";
-import { BiHome, BiSolidOffer } from "react-icons/bi";
+import { BiSolidOffer } from "react-icons/bi";
+import { IoCall } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
+
 function TestPanel() {
   let angle = 180;
   const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -50,96 +52,6 @@ function TestPanel() {
     infants: infants,
     seatClass: seatClass,
   };
-  console.log(obj);
-
-  useEffect(() => {
-    if (!ran.current) {
-      getOffers();
-      ran.current = true;
-    }
-
-    getFromCities();
-    getToCities();
-  }, [from, to, date, adults, childrens, infants, seatClass]);
-
-  const getOffers = async () => {
-    const projectId = "f104bi07c490";
-    const baseUrl =
-      'https://academics.newtonschool.co/api/v1/bookingportals/offers?filter={"type":"FLIGHTS"} ';
-
-    try {
-      var response = await fetch(baseUrl, {
-        method: "get",
-        headers: {
-          "Content-Type": "application/json",
-          projectID: projectId,
-        },
-      });
-      response = await response.json();
-      if (response.status === "success") {
-        setOffers(response.data.offers);
-      }
-      if (response.status === "fail") {
-        alert(response.message);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const getFromCities = async () => {
-    const projectId = "f104bi07c490";
-    const baseUrl =
-      "https://academics.newtonschool.co/api/v1/bookingportals/airport";
-    const endpointUrl = `${baseUrl}?search={"city":"${from}"}`;
-    const list = document.getElementById("list1");
-
-    try {
-      var response = await fetch(endpointUrl, {
-        method: "get",
-        headers: {
-          "Content-Type": "application/json",
-          projectID: projectId,
-        },
-      });
-      response = await response.json();
-      if (response.status === "success") {
-        setFromCities(response.data.airports);
-      }
-      if (response.status === "fail") {
-        alert(response.message);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const getToCities = async () => {
-    const projectId = "f104bi07c490";
-    const baseUrl =
-      "https://academics.newtonschool.co/api/v1/bookingportals/airport";
-    const endpointUrl = `${baseUrl}?search={"city":"${to}"}`;
-    const list = document.getElementById("list1");
-
-    try {
-      var response = await fetch(endpointUrl, {
-        method: "get",
-        headers: {
-          "Content-Type": "application/json",
-          projectID: projectId,
-        },
-      });
-      response = await response.json();
-      if (response.status === "success") {
-        setToCities(response.data.airports);
-      }
-      if (response.status === "fail") {
-        alert(response.message);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const hide = (id) => {
     document.getElementById(id).classList.add("hidden");
@@ -156,17 +68,16 @@ function TestPanel() {
   const focus = (id) => {
     document.getElementById(id).focus();
   };
-
   return (
-    <div className="flex flex-col justify-center items-center w-[95%] ">
-      <div className=" flex justify-center items-start w-[100%] xl:mt-6 z-40 ">
+    <div className="flex flex-col justify-center items-center ">
+      <div className="SEARCHBAR-RELATIVE-CONTAINER flex justify-center items-start w-[100%] xl:mt-6 bg-white z-40 ">
         <div className="xl:shadow  border-2 border-gray-200 xl:border-none w-[98%] p-20 flex flex-col gap-10 rounded-20 bg-white undefined">
           {/* TYPE OF TRIP AND AUTO SCROLLING HEADING CONTAINER STARTS */}
-          <div className="flex justify-between items-center ">
+          <div className="flex justify-between items-center">
             <div className="flex flex-col">
               <div
                 role="tablist"
-                className="flex items-center gap-10 justify-center "
+                className="flex items-center gap-10 justify-center"
               >
                 <button
                   role="tab"
@@ -182,6 +93,7 @@ function TestPanel() {
                 </button>
               </div>
             </div>
+
             {/* AUTO SCROLLING HEADINGS CONTAINER STARTS */}
             <div className=" hidden xl:block h-[20px] overflow-y-auto no-scrollbar">
               <div className="style_scrollingWordBox__F_1N8">
